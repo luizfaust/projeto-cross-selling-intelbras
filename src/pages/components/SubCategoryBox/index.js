@@ -29,10 +29,9 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MKButton from "components/MKButton";
 import Tooltip from "@mui/material/Tooltip";
+import MKTypography from "components/MKTypography";
 
-function CategoryBox({ categoria, produtos, xs }) {
-  const produtosSplit = produtos.split(",");
-
+function CategoryBox({ categoria, produtos, cxs }) {
   const [product, setProduct] = useState("Selecione");
   const [dropdown, setDropdown] = useState(null);
 
@@ -53,55 +52,70 @@ function CategoryBox({ categoria, produtos, xs }) {
     ...iconStyles,
   };
 
-  const listProdutos = produtosSplit.map((produto) => (
-    <Tooltip title={"Dica do " + produto} placement="right">
+  const listProdutos = Array.from(produtos).map((produto) => (
+    <Tooltip title={produto.split("|")[1]} placement="right">
       <MenuItem
         onClick={() => {
           closeDropdown();
           setColor("success");
-          setProduct(produto);
+          setProduct(produto.split("|")[0]);
         }}
       >
-        {produto}
+        {produto.split("|")[0]}
       </MenuItem>
     </Tooltip>
   ));
 
   return (
-    <Grid item xs={xs} key={categoria}>
+    <Grid item xs={cxs} key={categoria}>
       <Grid container justifyContent="center">
         <Grid item>
           <MKBox
             color="white"
             bgColor="dark"
             variant="gradient"
-            borderRadius={40}
+            borderRadius={80}
             shadow="lg"
             opacity={1}
             width={386}
+            height={200}
             p={2}
             m={2}
             textAlign="center"
-            sx={{ fontSize: "h4" }}
           >
-            <h4>{categoria}</h4>
-            <MKButton variant="gradient" color={color} onClick={openDropdown} key={categoria}>
-              {product} <Icon sx={dropdownIconStyles}>expand_more</Icon>
-            </MKButton>
-            <Menu anchorEl={dropdown} open={Boolean(dropdown)} onClose={closeDropdown}>
-              <Tooltip title="Nenhum produto" placement="right">
-                <MenuItem
-                  onClick={() => {
-                    closeDropdown();
-                    setColor("error");
-                    setProduct("Nenhuma");
-                  }}
-                >
-                  Nenhuma
-                </MenuItem>
-              </Tooltip>
-              {listProdutos}
-            </Menu>
+            <MKTypography
+              mt={3}
+              textAlign="center"
+              verticalAlign="middle"
+              color="white"
+              fontWeight="bold"
+              variant="h4"
+            >
+              <h2>{categoria}</h2>
+              <MKButton
+                variant="gradient"
+                color={color}
+                onClick={openDropdown}
+                key={categoria}
+                size="large"
+              >
+                {product} <Icon sx={dropdownIconStyles}>expand_more</Icon>
+              </MKButton>
+              <Menu anchorEl={dropdown} open={Boolean(dropdown)} onClose={closeDropdown}>
+                <Tooltip title="" placement="right">
+                  <MenuItem
+                    onClick={() => {
+                      closeDropdown();
+                      setColor("error");
+                      setProduct("Nenhum");
+                    }}
+                  >
+                    Nenhum
+                  </MenuItem>
+                </Tooltip>
+                {listProdutos}
+              </Menu>
+            </MKTypography>
           </MKBox>
         </Grid>
       </Grid>
@@ -113,14 +127,14 @@ function CategoryBox({ categoria, produtos, xs }) {
 CategoryBox.defaultProps = {
   categoria: "Pai",
   produtos: "Filho",
-  xs: 4,
+  cxs: 4,
 };
 
 // Typechecking props for the ExampleCard
 CategoryBox.propTypes = {
   categoria: PropTypes.string,
-  produtos: PropTypes.string,
-  xs: PropTypes.int,
+  produtos: PropTypes.array,
+  cxs: PropTypes.number,
 };
 
 export default CategoryBox;

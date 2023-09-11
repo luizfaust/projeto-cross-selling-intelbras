@@ -25,6 +25,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 // Material Kit 2 React themes
 import theme from "assets/theme";
 import Crossseling from "layouts/pages/crossselling";
+import Analogica from "layouts/pages/analogica";
+import IP from "layouts/pages/ip";
 
 // Material Kit 2 React routes
 import routes from "routes";
@@ -59,6 +61,8 @@ export default function App() {
 
         <Route path="/crossseling" element={<Crossseling />} />
         <Route path="*" element={<Navigate to="/crossseling" />} />
+        <Route path="/analogica" element={<Analogica />} />
+        <Route path="/ip" element={<IP />} />
       </Routes>
     </ThemeProvider>
   );

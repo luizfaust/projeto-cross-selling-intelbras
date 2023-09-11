@@ -84,60 +84,68 @@ function Crossselling() {
         <Container>
           <Grid container item xs={12} justifyContent="space-evenly" alignItems="center">
             <CategoryBox
-              categoria="Fonte de alimentação"
-              produtos="Colmeia, Fonte nobreak, Muiltisaida, Wall mount"
+              categoria="Fonte de alimentação|Energia dos produtos"
+              produtos={["Colmeia|dica", "Fonte nobreak", " Muiltisaida", " Wall mount"]}
               mtop={10}
               mbot={0}
             />
             <CategoryBox
               categoria="Protetor eletrônico"
-              produtos="Adaptador eletrônico, Filtro ativo de isolamento de tensão, Protetor 4 tomadas, Protetor 5 tomadas, Protetor 8 tomadas"
+              produtos={[
+                "Adaptador eletrônico",
+                " Protetor 4 tomadas",
+                " Protetor 5 tomadas",
+                " Protetor 8 tomadas",
+              ]}
               mtop={0}
             />
             <CategoryBox
               categoria="Conector"
-              produtos="BNC - Conector borne, BNC - Conector mola, P4 - Macho Fast, P4 - Macho, P4 - Fêmea"
+              produtos={["RJ 45", "RJ 45 vazado", "RJ 45 Cat6", " RJ45 Cat5e"]}
               mtop={10}
               mbot={0}
             />
+            <CategoryBox categoria="Microfone" produtos={["Série 1000", " Série 3000"]} />
+
+            <FamilyBox nome="Camera IP" />
+
+            <CategoryBox categoria="Caixa de Passagem" produtos={["Vbox plástico", " Box metal"]} />
+
+            <CategoryBox categoria="Cabos" produtos={["Coaxial Bipolar", " Par trançado"]} />
             <CategoryBox
-              categoria="Balun"
-              produtos="Power Balun com alimentação, Power Balun, Power Balun de 1 canal, Balun com alimentação 1 canal, Balun Passivo"
+              categoria="Ferramentas"
+              produtos={["Testador de cabos", " Multimetro simplificado", " Testador Multifunções"]}
             />
+            <CategoryBox categoria="Cabos" produtos={["Coaxial Bipolar", " Par trançado"]} />
 
-            <FamilyBox nome="Camera analogica" />
-
-            <CategoryBox categoria="Microfone" produtos="Série 1000, Série 3000" />
-
-            <Grid item xs={2}></Grid>
-            <CategoryBox categoria="Caixa de Passagem" produtos="Vbox plástico, Box metal" />
-            <CategoryBox categoria="Cabos" produtos="Coaxial Bipolar, Par trançado" />
-            <Grid item xs={2}></Grid>
-
-            <Grid item xs={4} justifyContent="space-evenly">
-              <CategoryBox xs={12} categoria="No Break" produtos="Interativo, Senoidal, Online" />
-              <CategoryBox xs={12} categoria="Multibox" produtos="Sim" />
-            </Grid>
+            <CategoryBox
+              categoria="Mesa de controle"
+              produtos={["Mesa de controle IP", " Mesa controlador híbrida"]}
+            />
             <SubCategoryBox
-              categoria="DVR"
-              produtos="Série 500, Série 1000, Série 3000, Série 5000"
+              categoria="NVR"
+              produtos={[
+                "Série  500|(4 ou 8 canais)",
+                "Série 1000|(4, 8 ou 16 canais)",
+                "Série 3000|(4, 8, 16 ou 32 canais)",
+                "Série 5000|(4, 8, 16 ou 32 canais)",
+                "Série 7000|(4, 8, 16 ou 32 canais)",
+                "Série 9000|(16 ou 32 canais)",
+              ]}
             />
-            <Grid item xs={4} justifyContent="space-evenly">
-              <CategoryBox xs={12} categoria="HD" produtos="Purple, Purple Pro, Gold" />
-              <CategoryBox
-                xs={12}
-                categoria="Comunicação HDMI"
-                produtos="Multivisualizador HDMI, Multiplicador HDMI, Divisor HDMI, Extensor HDMI, Extensor KVM HDMI, Extensor de vídeo HDMI"
-              />
-            </Grid>
+            <CategoryBox xs={4} categoria="No Break" produtos="Interativo, Senoidal, Online" />
             <Grid item xs={2}></Grid>
             <CategoryBox
               categoria="Extensores"
-              produtos="Extensor USB (dados), Extensor de vídeo e áudio, Extensor KVM (Vídeo e dados)"
+              produtos={[
+                "Extensor USB (dados)",
+                "Extensor de vídeo e áudio",
+                "Extensor KVM (Vídeo e dados)",
+              ]}
             />
             <CategoryBox
               categoria="Mesa de controle"
-              produtos="Mesa controladora, Mesa controladora híbrida"
+              produtos={["Mesa controladora", "Mesa controladora híbrida"]}
             />
             <Grid item xs={2}></Grid>
           </Grid>
