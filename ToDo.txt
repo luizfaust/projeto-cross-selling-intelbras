@@ -1,0 +1,4 @@
+Seta/linha ligando as categorias
+Quadrado verde
+sem rodape
+Categorias sumirem ate selecionar

@@ -27,7 +27,6 @@ import MKButton from "components/MKButton";
 // Custom Components
 import CategoryBox from "../components/CategoryBox";
 import FamilyBox from "../components/FamilyBox";
-import SubCategoryBox from "../components/SubCategoryBox";
 
 // Material Kit 2 React examples
 import DefaultFooter from "examples/Footers/DefaultFooter";
@@ -84,8 +83,13 @@ function Crossselling() {
         <Container>
           <Grid container item xs={12} justifyContent="space-evenly" alignItems="center">
             <CategoryBox
-              categoria="Fonte de alimentação"
-              produtos={["Colmeia", "Fonte nobreak", "Muiltisaida", "Wall mount"]}
+              categoria="Fonte de alimentação|Comentario"
+              produtos={[
+                "Colmeia|Detalhes sobre comeia",
+                "Fonte nobreak",
+                "Muiltisaida",
+                "Wall mount",
+              ]}
               mtop={10}
               mbot={0}
             />
@@ -127,10 +131,13 @@ function Crossselling() {
 
             <CategoryBox categoria="Microfone" produtos={["Série 1000", "Série 3000"]} />
 
-            <Grid item xs={2}></Grid>
             <CategoryBox categoria="Caixa de Passagem" produtos={["Vbox plástico", "Box metal"]} />
+
+            <CategoryBox
+              categoria="DVR"
+              produtos={["Série 500", "Série 1000", "Série 3000", "Série 5000"]}
+            />
             <CategoryBox categoria="Cabos" produtos={["Coaxial Bipolar", "Par trançado"]} />
-            <Grid item xs={2}></Grid>
 
             <Grid item xs={4} justifyContent="space-evenly">
               <CategoryBox
@@ -140,10 +147,6 @@ function Crossselling() {
               />
               <CategoryBox cxs={12} categoria="Multibox" produtos={["Sim"]} />
             </Grid>
-            <SubCategoryBox
-              categoria="DVR"
-              produtos={["Série 500", "Série 1000", "Série 3000", "Série 5000"]}
-            />
             <Grid item xs={4} justifyContent="space-evenly">
               <CategoryBox cxs={12} categoria="HD" produtos={["Purple", "Purple Pro", "Gold"]} />
               <CategoryBox
